@@ -1,14 +1,19 @@
 import './polyfills'
 import './main.sass'
-import { component } from './components/component'
 
-let demoComponent = component()
-document.body.appendChild(demoComponent)
+import { element, bootstrap } from 'angular'
+import { app } from './components/index'
+
+element(document).ready(() => {
+  bootstrap(document.body, [app])
+})
 
 if (module.hot) {
-  module.hot.accept('./components/component', () => {
-    const nextComponent = require('./components/component').component()
-    document.body.replaceChild(nextComponent, demoComponent)
-    demoComponent = nextComponent
+  module.hot.accept()
+  module.hot.dispose(() => {
+    let newcontainer = document.body
+    let noAngularDOM = newcontainer.cloneNode(true)
+    newcontainer.remove()
+    document.documentElement.appendChild(noAngularDOM.cloneNode(true))
   })
 }
