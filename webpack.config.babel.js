@@ -2,12 +2,14 @@ import webpack from 'webpack'
 import merge from 'webpack-merge'
 import requireDir from 'require-dir'
 import dotenv from 'dotenv'
+import path from 'path'
 
 // Locals Paths
 import { main, client } from './tools/paths'
 
 // Environment Variables
 dotenv.load()
+
 const environment = {
   'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
   'process.env.API_VERSION': JSON.stringify(process.env.API_VERSION),
@@ -28,7 +30,9 @@ const common = merge([
     },
     resolve: {
       extensions: ['.ts', '.tsx', '.js', '.jsx'],
-      alias: {}
+      alias: {
+        images: path.resolve('./modules/client/core/images/')
+      }
     },
     plugins: [
       new webpack.DefinePlugin(environment),
@@ -66,7 +70,7 @@ export default (env) => {
         tasks.scripts.run(client.main),
         tasks.scripts.minify({ useSourceMap: true }),
         // images
-        tasks.images.run()
+        tasks.images.run(env)
       ])
     default:
       return merge([
@@ -85,9 +89,7 @@ export default (env) => {
         tasks.scripts.lint(),
         tasks.scripts.run(client.main),
         // images
-        tasks.images.run(),
-        // pug
-        tasks.views.views()
+        tasks.images.run(env)
       ])
   }
 }

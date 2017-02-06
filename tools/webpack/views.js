@@ -1,16 +1,7 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin'
+import path from 'path'
 
 export const run = () => {
-  return {
-    plugins: [
-      new HtmlWebpackPlugin({
-        title: 'Webpack Demo'
-      })
-    ]
-  }
-}
-
-export const views = (include) => {
   return {
     module: {
       rules: [
@@ -30,6 +21,11 @@ export const views = (include) => {
           ]
         }
       ]
-    }
+    },
+    plugins: [
+      new HtmlWebpackPlugin({
+        template: path.resolve('./modules/client/pages/home/home.client.page.pug')
+      })
+    ]
   }
 }

@@ -59,7 +59,7 @@ export const minify = ({ useSourceMap }) => {
           keep_fnames: true
         },
         compress: {
-          warnings: true
+          warnings: false
         }
       })
     ]

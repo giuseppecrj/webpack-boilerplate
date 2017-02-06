@@ -1,4 +1,3 @@
-import webpack from 'webpack'
 import SvgStore from 'webpack-svgstore-plugin'
 
 export const run = (include) => {
@@ -12,7 +11,8 @@ export const run = (include) => {
               loader: 'url-loader',
               options: {
                 limit: 10000,
-                name: 'images/[name].[ext]'
+                name: 'images/[name].[ext]',
+                publicPath: ''
               }
             },
             {
@@ -45,11 +45,6 @@ export const run = (include) => {
           ]
         },
         prefix: ''
-      }),
-      new webpack.LoaderOptionsPlugin({
-        responsiveLoader: {
-          name: 'images/[name]-[width].'
-        }
       })
     ]
   }

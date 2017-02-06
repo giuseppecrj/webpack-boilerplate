@@ -6,7 +6,6 @@ export const run = (options) => {
       historyApiFallback: true,
       contentBase: options.contentBase,
       hot: true,
-      hotOnly: true,
       stats: 'errors-only',
       port: options.port
     },
