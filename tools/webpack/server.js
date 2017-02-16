@@ -5,13 +5,12 @@ export const run = (options) => {
     devServer: {
       historyApiFallback: true,
       contentBase: options.contentBase,
-      hot: true,
       stats: 'errors-only',
       port: options.port
     },
     plugins: [
       new webpack.HotModuleReplacementPlugin({
-        multiStep: true
+        multiStep: false
       }),
       new webpack.NamedModulesPlugin()
     ]
