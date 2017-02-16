@@ -1,4 +1,3 @@
-// https://egghead.io/lessons/javascript-redux-react-counter-example?series=getting-started-with-redux
 import React from 'react'
 import { createStore } from 'redux'
 import ReactDOM from 'react-dom'

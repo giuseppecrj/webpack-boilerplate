@@ -1,2 +1,2 @@
 import './polyfills'
-import './app/chapter-8/app'
+import './app/functional-programming/app'
