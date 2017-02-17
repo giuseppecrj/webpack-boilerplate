@@ -5,7 +5,6 @@ export const run = (options) => {
     devServer: {
       historyApiFallback: true,
       contentBase: options.contentBase,
-      hot: true,
       stats: 'errors-only',
       port: options.port
     },
