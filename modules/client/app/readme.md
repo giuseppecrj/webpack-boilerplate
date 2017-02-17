@@ -40,3 +40,29 @@ function bar (x, y, z) {
 console.log(bar(5, 2, 3))
 
 ```
+
+Task 1
+
+```
+function bar (x, y) {
+  var z
+
+  foo(x)
+
+  return [y, z]
+
+  function foo (x) {
+    y++
+    z = x * y
+  }
+}
+
+bar(20, 5) // [6, 120]
+bar(25, 5) // [6, 150]
+```
+
+Reach for the array before reaching for the object
+
+### Composition
+
+take the output of one function and the output will become part of the input for another function
