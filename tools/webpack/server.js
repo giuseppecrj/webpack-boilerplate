@@ -10,7 +10,7 @@ export const run = (options) => {
     },
     plugins: [
       new webpack.HotModuleReplacementPlugin({
-        multiStep: true
+        multiStep: false
       }),
       new webpack.NamedModulesPlugin()
     ]
