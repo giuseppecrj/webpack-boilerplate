@@ -19,6 +19,10 @@ export const run = () => {
               }
             }
           ]
+        },
+        {
+          test: /\.html$/,
+          loader: 'html-loader?pretty=true'
         }
       ]
     },

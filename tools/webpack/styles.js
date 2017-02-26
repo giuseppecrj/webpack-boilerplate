@@ -8,7 +8,7 @@ export const run = (include) => {
     module: {
       rules: [
         {
-          test: /\.sass$/,
+          test: /\.css$/,
           use: [
             'style-loader',
             'css-loader?sourceMap',
@@ -39,7 +39,7 @@ export const production = (include, purifyPath) => {
     module: {
       rules: [
         {
-          test: /\.sass$/,
+          test: /\.css$/,
           loader: ExtractTextPlugin.extract({
             fallbackLoader: 'style-loader',
             loader: 'css-loader?sourceMap!postcss-loader?sourceMap=inline!sass-loader?sourceMap',
