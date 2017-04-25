@@ -1,42 +1,51 @@
 import './polyfills'
 import './main.sass'
 
-export function computeProduct (unsorted) {
-  let sortedArray = unsorted.sort((a, b) => {
-    return a - b
-  })
-
-  let product1 = 1
-  let product2 = 1
-  let arrayNElement = sortedArray.length - 1
-  let upperBound = arrayNElement - 3
-
-  for (let x = arrayNElement; x > upperBound; x--) {
-    product1 = product1 * sortedArray[x]
+// store
+export class Store {
+  constructor (reducer, initialState) {
+    this.reducer = reducer
+    this._state = initialState
+    this._listeners = []
   }
 
-  product2 = sortedArray[0] * sortedArray[1] * sortedArray[arrayNElement]
+  getState () {
+    return this._state
+  }
 
-  if (product1 > product2) return product1
+  dispatch (action) {
+    this._state = this.reducer(this._state, action)
+    this._listeners.forEach((listener) => listener())
+  }
 
-  return product2
-}
-
-let array = [1, 2, 3, 5, 1, 5, 9, 1, 2, 8]
-// let uniqueArray = Array.from(new Set(array))
-
-console.log(uniqueArray(array))
-
-export function uniqueArray (array) {
-  var hashmap = {}
-  var unique = []
-
-  for (var i = 0; i < array.length; i++) {
-    if (!hashmap.hasOwnProperty(array[i])) {
-      hashmap[array[i]] = 1
-      unique.push(array[i])
+  subscribe (listener) {
+    this._listeners.push(listener)
+    return () => {
+      this._listeners = this._listeners.filter((l) => l !== listener)
     }
   }
+}
 
-  return unique
+// actions
+const INCREMENT = 'INCREMENT'
+const DECREMENT = 'DECREMENT'
+const PLUS = 'PLUS'
+
+export const incrementAction = { type: INCREMENT }
+export const decrementAction = { type: DECREMENT }
+export const unknownAction = { type: 'UNKNOWN' }
+export const plusAction = { type: PLUS, payload: 7 }
+
+// reducers
+export const reducer = (state, action) => {
+  switch (action.type) {
+    case INCREMENT:
+      return state + 1
+    case DECREMENT:
+      return state - 1
+    case PLUS:
+      return state + action.payload
+    default:
+      return state
+  }
 }
