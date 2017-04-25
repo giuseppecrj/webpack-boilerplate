@@ -1,5 +1,6 @@
 import './polyfills'
 import './main.sass'
+// http://blog.ng-book.com/introduction-to-redux-with-typescript-and-angular-2/#core-redux-ideas
 
 // store
 export class Store {
