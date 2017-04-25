@@ -3,6 +3,7 @@ import webpack from 'webpack'
 export const run = (options) => {
   return {
     devServer: {
+      hot: true,
       historyApiFallback: true,
       contentBase: options.contentBase,
       stats: 'errors-only',

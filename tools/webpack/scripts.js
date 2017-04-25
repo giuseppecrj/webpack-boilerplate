@@ -1,4 +1,5 @@
 import webpack from 'webpack'
+import path from 'path'
 
 export const extract = (bundles, options) => {
   const entry = {}
@@ -46,7 +47,14 @@ export const run = (include) => {
           include
         }
       ]
-    }
+    },
+    plugins: [
+      new webpack.ContextReplacementPlugin(
+        /angular(\\|\/)core(\\|\/)@angular/,
+        path.resolve('./modules/client'),
+        {}
+      )
+    ]
   }
 }
 
