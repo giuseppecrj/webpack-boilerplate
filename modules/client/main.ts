@@ -2,30 +2,7 @@ import './polyfills'
 import './main.sass'
 // http://blog.ng-book.com/introduction-to-redux-with-typescript-and-angular-2/#core-redux-ideas
 
-// store
-export class Store {
-  constructor (reducer, initialState) {
-    this.reducer = reducer
-    this._state = initialState
-    this._listeners = []
-  }
-
-  getState () {
-    return this._state
-  }
-
-  dispatch (action) {
-    this._state = this.reducer(this._state, action)
-    this._listeners.forEach((listener) => listener())
-  }
-
-  subscribe (listener) {
-    this._listeners.push(listener)
-    return () => {
-      this._listeners = this._listeners.filter((l) => l !== listener)
-    }
-  }
-}
+import { createStore } from 'redux'
 
 // ---------- MESSAGES ----------
 
@@ -42,7 +19,9 @@ export class MessageActions {
   }
 }
 
-export const reducer = (state, action) => {
+let initialState = { messages: [] }
+
+export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_MESSAGE:
       return { messages: state.messages.concat(action.message) }
@@ -53,11 +32,11 @@ export const reducer = (state, action) => {
         ...state.messages.slice(idx + 1, state.messages.length)
       ]}
     default:
-      return {}
+      return state
   }
 }
 
-let store = new Store(reducer, { messages: [] })
+let store = createStore(reducer)
 
 store.dispatch(MessageActions.addMessage('Would you say the fringe was made of silk?'))
 store.dispatch(MessageActions.addMessage(`Wouldn't have no other kind of silk`))
