@@ -52,6 +52,7 @@
     "pug-plugin-ng": "^0.0.2",
     "purifycss-webpack": "^0.4.2",
     "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0",
     "require-dir": "^0.3.1",
     "responsive-loader": "^0.7.0",
     "rucksack-css": "^0.9.1",
