@@ -1,17 +1,18 @@
 import { InjectionToken } from '@angular/core'
-import { createStore, compose } from 'redux'
 import { rootReducer as reducer } from './app.client.reducer'
-// import { createStore, compose, applyMiddleware } from 'redux'
-// import * as thunk from 'redux-thunk'
+import { createStore, compose, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
 
 export const AppStore = new InjectionToken('App.store')
 
-const devtools = window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : f => f
+const composeEnhancers = typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) : compose
+
+const enhancer = composeEnhancers(applyMiddleware(thunk))
 
 export const createAppStore = () => {
   return createStore(
     reducer,
-    compose(devtools)
+    enhancer
   )
 }
 
