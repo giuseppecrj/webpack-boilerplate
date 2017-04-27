@@ -10,8 +10,8 @@ export class CounterActions {
     }
   }
 
-  static decrement () {
-    return { type: DECREMENT }
+  static decrement (payload) {
+    return { type: DECREMENT, payload }
   }
 
   static show (payload) {
