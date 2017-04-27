@@ -2,9 +2,10 @@ export const INCREMENT = 'INCREMENT'
 export const DECREMENT = 'DECREMENT'
 
 export class CounterActions {
-  static increment () {
+  static increment (payload) {
     return {
-      type: INCREMENT
+      type: INCREMENT,
+      payload
     }
   }
 
