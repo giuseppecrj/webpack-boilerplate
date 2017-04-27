@@ -1,0 +1,10 @@
+{
+  "events": [
+    {
+      "title": "Cool Title",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta quidem harum doloribus veritatis ipsa, hic natus ipsam, repellendus, dolore mollitia quas enim deleniti dolorem optio asperiores alias ex labore? Velit?",
+      "event": "Saturday, February 18, 2017",
+      "tags": ["cool"]
+    }
+  ]
+}
