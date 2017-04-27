@@ -1,6 +1,6 @@
 import { DECREMENT, INCREMENT } from './counter.client.actions'
 
-let initialState = { items: [{ id: 1, name: 'G' }] }
+let initialState = []
 
 export const CounterReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -8,7 +8,7 @@ export const CounterReducer = (state = initialState, action) => {
       return action.payload
 
     case DECREMENT:
-      return state.items.filter(item => { return item.id !== action.payload.id })
+      return state.filter(item => { return item.id !== action.payload.id })
 
     default:
       return state

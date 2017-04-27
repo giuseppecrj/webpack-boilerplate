@@ -1,41 +1,25 @@
-import { Component, Inject } from '@angular/core' // eslint-disable-line no-unused-vars
-import { Store } from '@ngrx/store'
+import { Component } from '@angular/core'
+import { CounterService } from './counter.client.service'
 
 import * as template from './counter.client.component.pug'
 
 @Component({
   selector: 'counter',
-  template
+  template,
+  providers: [CounterService]
 })
 
 export class CounterComponent {
-  constructor (store: Store) {
-    this.store = store
-    // this.subscription = this.store.select('counter').subscribe((response) => {
-    //   this.items = response.items
-    // })
-    this.items = this.store.select('counter', 'items')
+  constructor (counterService: CounterService) {
+    this.counterService = counterService
+    this.items = counterService.items
   }
 
-  // ngOnInit () {
-  //   this.subscription = this.store.subscribe(() => this.readState())
-  //   this.readState()
-  // }
+  ngOnInit () {
+    this.counterService.loadCampaigns()
+  }
 
-  // ngOnDestroy () {
-  //   this.subscription.unsubscribe()
-  // }
-
-  // readState () {
-  //   let state = this.store.getState()
-  //   this.items = state.counter.items
-  // }
-
-  // increment () {
-  //   this.store.dispatch(CounterActions.increment())
-  // }
-
-  // decrement () {
-  //   this.store.dispatch(CounterActions.decrement())
-  // }
+  remove (item) {
+    this.counterService.remove(item)
+  }
 }
