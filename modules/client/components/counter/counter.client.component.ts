@@ -1,9 +1,6 @@
 import { Component, Inject } from '@angular/core' // eslint-disable-line no-unused-vars
 import { Store } from '@ngrx/store'
 
-// import { CounterActions } from './counter.client.actions'
-// import { CounterService } from './counter.client.service'
-
 import * as template from './counter.client.component.pug'
 
 @Component({
