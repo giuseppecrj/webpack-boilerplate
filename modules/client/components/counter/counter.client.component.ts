@@ -16,10 +16,6 @@ export class CounterComponent {
   }
 
   ngOnInit () {
-    this.counterService.loadCampaigns()
-  }
-
-  remove (item) {
-    this.counterService.remove(item)
+    this.counterService.init()
   }
 }
