@@ -12,7 +12,7 @@ export class CounterService {
     this.items = store.select('counter')
   }
 
-  loadCampaigns () {
+  init () {
     return this.http.get('http://localhost:3005/api/v1/events')
       .map((res) => res.json())
       .map((payload) => {
