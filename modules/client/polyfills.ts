@@ -1,4 +1,9 @@
 // -----------------------------
+// Font Awesome
+// -----------------------------
+import 'font-awesome-sass-loader'
+
+// -----------------------------
 // Webpack Polyfills
 // -----------------------------
 
@@ -15,8 +20,3 @@ require('webpack-svgstore-plugin/src/helpers/svgxhr')(__svg__)
 /* eslint-disable */
 __webpack_public_path__ = process.env.NODE_ENV === 'production' ? process.env.CDN_URL + '/' + process.env.CDN_VERSION + '/' : window.location.protocol + '//' + window.location.host + '/'
 /* eslint-enable */
-
-// -----------------------------
-// Font Awesome
-// -----------------------------
-import 'font-awesome-sass-loader'
