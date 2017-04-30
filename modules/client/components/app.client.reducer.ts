@@ -1,6 +1,6 @@
 import { combineReducers } from '@ngrx/store'
-import { CounterReducer } from './counter/counter.client.reducer'
+import { clock } from './clock/clock.client.reducer'
 
 export const rootReducer = combineReducers({
-  counter: CounterReducer
+  clock
 })

@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core' // eslint-disable-line no-unused-vars
+import { Component } from '@angular/core' // eslint-disable-line no-unused-vars
 
 import * as template from './app.client.component.pug'
 

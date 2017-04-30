@@ -7,12 +7,14 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import { rootReducer as reducer } from './app.client.reducer'
 
 import { AppComponent } from './app.client.component'
-import { CounterComponent } from './counter/counter.client.component'
+import { ClockComponent } from './clock/clock.client.component'
+import { TimeComponent } from './time/time.client.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    CounterComponent
+    ClockComponent,
+    TimeComponent
   ],
   imports: [
     BrowserModule,

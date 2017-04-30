@@ -9,8 +9,8 @@ import 'rxjs'
 // Import Svg
 // -----------------------------
 
-var __svg__ = { path: './core/icons/**/*.svg', name: 'icons/all.svg' }
-require('webpack-svgstore-plugin/src/helpers/svgxhr')(__svg__)
+// var __svg__ = { path: './core/icons/**/*.svg', name: 'icons/all.svg' }
+// require('webpack-svgstore-plugin/src/helpers/svgxhr')(__svg__)
 
 // -----------------------------
 // Image Public Path Fix
