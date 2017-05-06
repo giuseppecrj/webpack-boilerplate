@@ -4,6 +4,8 @@ import requireDir from 'require-dir'
 import dotenv from 'dotenv'
 import path from 'path'
 
+process.noDeprecation = true
+
 // Locals Paths
 import { main, client } from './tools/paths'
 
