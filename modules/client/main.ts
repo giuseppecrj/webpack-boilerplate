@@ -15,5 +15,7 @@ const Left = x => ({
   toString: () => `Left(${x})`
 })
 
-const result = Left(3).map(x => x + 1).map(x => x / 2)
+const resolve = () => Left(3).map(x => x + 1).map(x => x / 2)
+
+const result = resolve()
 console.log(String(result))
