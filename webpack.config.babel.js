@@ -9,6 +9,8 @@ process.noDeprecation = true
 // Locals Paths
 import { main, client } from './tools/paths'
 
+process.noDeprecation = true
+
 // Environment Variables
 dotenv.load()
 
